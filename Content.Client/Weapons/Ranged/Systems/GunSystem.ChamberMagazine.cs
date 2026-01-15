@@ -72,9 +72,10 @@ public sealed partial class GunSystem
         if (magEntity != null)
             RaiseLocalEvent(magEntity.Value, ref ammoCountEv, false);
 
-        var hasRoundChambered = chambered != null && component.BoltClosed == true; // don't show chambered round if bolt is open
+        var hasRoundChambered = chambered != null && component.BoltClosed == true; // Mono: don't show chambered round if bolt is open
         control.Update(hasRoundChambered, magEntity != null, ammoCountEv.Count, ammoCountEv.Capacity);
     }
+    //Mono
     private void OnBoltStateChanged(EntityUid uid, ChamberMagazineAmmoProviderComponent comp, BoltStateChangedEvent args)
     {
         UpdateAmmoCount(uid); // Update the ammo counter when the bolt state changes

@@ -203,7 +203,7 @@ public abstract partial class SharedGunSystem
         }
 
         component.BoltClosed = value;
-        RaiseLocalEvent(uid, new BoltStateChangedEvent(user ?? EntityUid.Invalid, value));
+        RaiseLocalEvent(uid, new BoltStateChangedEvent(user ?? EntityUid.Invalid, value)); //Mono
         Dirty(uid, component);
     }
 

@@ -808,22 +808,12 @@ public abstract partial class SharedGunSystem : EntitySystem
     {
         public List<(NetCoordinates coordinates, Angle angle, SpriteSpecifier Sprite, float Distance)> Sprites = new();
     }
-
-    /// <summary>
-    /// Raised when a chamber-mag gun's bolt is opened or closed.
-    /// </summary>
-    public sealed class BoltStateChangedEvent : EntityEventArgs
-    {
-        public readonly EntityUid User;
-        public readonly bool Closed;
-
-        public BoltStateChangedEvent(EntityUid user, bool closed)
-        {
-            User = user;
-            Closed = closed;
-        }
-    }
 }
+
+/// <summary>
+/// Raised when a chamber-mag gun's bolt is opened or closed.
+/// </summary>
+public record struct BoltStateChangedEvent(EntityUid User, bool Closed); //Mono
 
 /// <summary>
 ///     Raised directed on the gun before firing to see if the shot should go through.
