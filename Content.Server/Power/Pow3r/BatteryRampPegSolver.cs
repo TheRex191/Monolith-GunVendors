@@ -73,7 +73,7 @@ namespace Content.Server.Power.Pow3r
         {
             foreach (var load in state.Loads.Values)
             {
-                if (load.Paused)
+                if (load.Paused || load.LinkedNetwork == default || !state.Networks[load.LinkedNetwork].Dirty) // Mono: Clear network loads only if network is dirty
                     continue;
 
                 load.ReceivingPower = 0;
@@ -81,7 +81,7 @@ namespace Content.Server.Power.Pow3r
 
             foreach (var supply in state.Supplies.Values)
             {
-                if (supply.Paused)
+                if (supply.Paused || supply.LinkedNetwork == default || !state.Networks[supply.LinkedNetwork].Dirty) // Mono: Clear network supplies only if network is dirty
                     continue;
 
                 supply.CurrentSupply = 0;
@@ -91,6 +91,14 @@ namespace Content.Server.Power.Pow3r
 
         private void UpdateNetwork(Network network, PowerState state, float frameTime)
         {
+            // Mono:  Skip clean networks if all their batteries are stable
+            if (!network.Dirty)
+            {
+                bool hasUnstableBattery = network.BatteryLoads.Any(id => !state.Batteries[id].IsStable) ||
+                                        network.BatterySupplies.Any(id => !state.Batteries[id].IsStable);
+                if (!hasUnstableBattery)
+                    return;
+            }
             // TODO Look at SIMD.
             // a lot of this is performing very basic math on arrays of data objects like batteries
             // this really shouldn't be hard to do.
@@ -287,6 +295,10 @@ namespace Content.Server.Power.Pow3r
                 //DebugTools.Assert(battery.MaxEffectiveSupply * relativeTargetBatteryOutput <= battery.LoadingNetworkDemand
                 //    || MathHelper.CloseToPercent(battery.MaxEffectiveSupply * relativeTargetBatteryOutput, battery.LoadingNetworkDemand, 0.001));
             }
+
+            // Mono: Mark network as clean since we just processed it
+            network.Dirty = false;
+            UpdateBatteryStability(PowerState);
         }
 
         private void ClearBatteries(PowerState state)
@@ -312,6 +324,22 @@ namespace Content.Server.Power.Pow3r
 
                 battery.SupplyingMarked = false;
                 battery.LoadingMarked = false;
+            }
+        }
+        ///<summary>
+        /// Mono: Updates the stability status of all batteries in the power state.
+        /// </summary>
+        private void UpdateBatteryStability(PowerState state)
+        {
+            foreach(var battery in state.Batteries.Values)
+            {
+            bool atCapacity = MathHelper.CloseToPercent(battery.CurrentStorage, battery.Capacity, 0.01f);
+            bool empty = battery.CurrentStorage <= 0;
+            bool chargingMax = battery.CurrentReceiving >= battery.MaxChargeRate * 0.99f;
+            bool dischargingMax = battery.CurrentSupply >= battery.MaxSupply * 0.99f;
+
+            // Unstable if at boundary or changing rate significantly
+            battery.IsStable = atCapacity || empty || chargingMax || dischargingMax;
             }
         }
 

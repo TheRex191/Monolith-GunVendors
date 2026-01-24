@@ -451,6 +451,16 @@ namespace Content.Server.Power.Pow3r
             [ViewVariables(VVAccess.ReadWrite)] [JsonIgnore]
             public NodeId LinkedNetworkCharging;
 
+            /// <summary>
+            /// Mono:
+            /// A battery is "stable" if:
+            /// - It's not at full capacity and not at empty
+            /// - It's not charging/discharging at maximum rate
+            /// - Its state won't significantly change next tick
+            /// </summary>
+            [ViewVariables(VVAccess.ReadWrite)] [JsonIgnore]
+            public bool IsStable = false;
+
             [ViewVariables(VVAccess.ReadWrite)] [JsonIgnore]
             public NodeId LinkedNetworkDischarging;
 
@@ -467,6 +477,14 @@ namespace Content.Server.Power.Pow3r
         public sealed class Network
         {
             [ViewVariables] public NodeId Id;
+
+            /// <summary>
+            ///     Mono:
+            ///     Tracks whether this network has changed and needs a solver update.
+            ///     Set to true when supplies/loads/batteries are added/removed or state changes.
+            ///     Cleared after solver processes this network.
+            /// </summary>
+            [ViewVariables] [JsonIgnore] public bool Dirty = true;
 
             /// <summary>
             ///     Power generators

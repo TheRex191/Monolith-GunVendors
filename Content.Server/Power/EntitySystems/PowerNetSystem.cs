@@ -12,6 +12,7 @@ using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.Threading;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Power.EntitySystems
 {
@@ -26,6 +27,7 @@ namespace Content.Server.Power.EntitySystems
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly IParallelManager _parMan = default!;
         [Dependency] private readonly BatterySystem _battery = default!;
+        [Dependency] private readonly IGameTiming _gameTiming = default!;
 
         private readonly PowerState _powerState = new();
         private readonly HashSet<PowerNet> _powerNetReconnectQueue = new();
@@ -187,10 +189,19 @@ namespace Content.Server.Power.EntitySystems
             _powerState.GroupedNets = null;
         }
 
+        /// <summary>
+        ///  Mono:   Marks a power network as dirty, forcing it to be recalculated on the next solver tick.
+        /// </summary>
+        public void MarkPowerNetDirty(PowerNet powerNet)
+        {
+            powerNet.NetworkNode.Dirty = true;
+        }
+
         public void QueueReconnectPowerNet(PowerNet powerNet)
         {
             _powerNetReconnectQueue.Add(powerNet);
             _powerState.GroupedNets = null;
+            powerNet.NetworkNode.Dirty = true; // Mono
         }
 
         public void InitApcNet(ApcNet apcNet)
@@ -209,6 +220,7 @@ namespace Content.Server.Power.EntitySystems
         {
             _apcNetReconnectQueue.Add(apcNet);
             _powerState.GroupedNets = null;
+            apcNet.NetworkNode.Dirty = true; // Mono
         }
 
         public PowerStatistics GetStatistics()
@@ -278,6 +290,7 @@ namespace Content.Server.Power.EntitySystems
 
         public override void Update(float frameTime)
         {
+            var startTime = _gameTiming.RealTime;
             base.Update(frameTime);
 
             // Mono
@@ -293,17 +306,28 @@ namespace Content.Server.Power.EntitySystems
 
             // Mono - replace frameTime with update interval
             // Run power solver.
+            var PSstartTime = _gameTiming.RealTime;
             _solver.Tick((float)_updateInterval.TotalSeconds, _powerState, _parMan);
-
+            var PSendTime = _gameTiming.RealTime;
             // Synchronize batteries, the other way around.
             RaiseLocalEvent(new NetworkBatteryPostSync());
 
             // Send events where necessary.
             // TODO: Instead of querying ALL power components every tick, and then checking if an event needs to be
             // raised, should probably assemble a list of entity Uids during the actual solver steps.
+
+            // Mono:
+            // Added a dirty flag to PowerState.Network for this purpose. When a network is changed (supply/load/battery added/removed,
+            // or their state changes), mark the network as dirty.
             UpdateApcPowerReceiver((float)_updateInterval.TotalSeconds); // Mono
             UpdatePowerConsumer();
             UpdateNetworkBattery();
+            var endTime = _gameTiming.RealTime;
+            var elapsed = endTime - startTime;
+            var PSelapsed = PSendTime - PSstartTime;
+
+            Logger.Info($"[Update] Tick took {elapsed}");
+            Logger.Info($"[Powersolver] Tick took {PSelapsed}");
         }
 
         private void ReconnectNetworks()
