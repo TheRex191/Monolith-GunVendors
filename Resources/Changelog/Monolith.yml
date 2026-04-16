@@ -19925,3 +19925,66 @@ Entries:
   id: 2199
   time: '2026-04-16T12:45:27.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3789
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: >-
+        Yowie randomized last names are no longer are an invalid character and
+        instead just don't exist
+  id: 2200
+  time: '2026-04-16T15:24:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3803
+- author: ziz11
+  changes:
+    - type: Add
+      message: Added mode change buttons to radar interfaces.
+  id: 2201
+  time: '2026-04-16T15:55:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3794
+- author: doublechest
+  changes:
+    - type: Fix
+      message: >-
+        Fixed not being able to move when entering the grid with jetpacks and
+        magboots enabled
+  id: 2202
+  time: '2026-04-16T16:04:10.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3781
+- author: Illumos
+  changes:
+    - type: Add
+      message: Added yip & whine emote to Vulpkanin, from the fox sounds.
+    - type: Tweak
+      message: Old Vulpkanin whine is now called "whimper".
+  id: 2203
+  time: '2026-04-16T16:16:57.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3538
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: Fixes the Sentinel's AME locker being unreachable by cyborgs.
+  id: 2204
+  time: '2026-04-16T16:18:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3531
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: RCD have been severely buffed.
+    - type: Tweak
+      message: Super part rating has upped to 4, Advanced part rating has upped to 3.
+    - type: Tweak
+      message: Super parts now require fissile uranium to be produced.
+  id: 2205
+  time: '2026-04-16T16:35:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3804
+- author: DieselMohawkTheSequel
+  changes:
+    - type: Tweak
+      message: Faction Access added to ID consoles
+    - type: Add
+      message: ID box added to Vizier locker
+    - type: Fix
+      message: DoC can no longer steal from the CC bank and vice versa
+  id: 2206
+  time: '2026-04-16T18:27:44.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3454
