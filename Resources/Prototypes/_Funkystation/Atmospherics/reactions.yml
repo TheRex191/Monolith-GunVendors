@@ -380,4 +380,4 @@
   - 0     # helium
   - 0     # antinob
   effects:
-  - !type:ProtoNitrateBZConversionReaction {} 
+  - !type:ProtoNitrateBZConversionReaction {}

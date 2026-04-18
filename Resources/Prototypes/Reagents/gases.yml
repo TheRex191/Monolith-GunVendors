@@ -424,7 +424,7 @@
           type: Yowie
           shouldHave: false
         - !type:OrganType # Mono - Hydrakin
-          type: Hydrakin 
+          type: Hydrakin
           shouldHave: false
         - !type:ReagentThreshold
           reagent: Frezon
@@ -493,7 +493,7 @@
 # Assmos - /tg/ gases: IDs 13-19
 
 - type: reagent
-  id: Hydrogen
+  id: HydrogenGas
   name: reagent-name-hydrogen
   desc: reagent-desc-hydrogen
   physicalDesc: reagent-physical-desc-gaseous
@@ -505,7 +505,7 @@
       - !type:Oxygenate
         conditions:
         - !type:OrganType
-          type: Thaven
+          type: Human
 
 - type: reagent
   id: Hyper-Noblium
@@ -520,7 +520,7 @@
       - !type:Oxygenate
         conditions:
         - !type:OrganType
-          type: Thaven
+          type: Human
 
 - type: reagent
   id: Proto-Nitrate
@@ -535,7 +535,7 @@
       - !type:Oxygenate
         conditions:
         - !type:OrganType
-          type: Thaven
+          type: Human
 
 - type: reagent
   id: Zauker
@@ -550,7 +550,7 @@
       - !type:Oxygenate
         conditions:
         - !type:OrganType
-          type: Thaven
+          type: Human
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -558,7 +558,7 @@
           min: 0.25
           max: 12
         - !type:OrganType
-          type: Thaven
+          type: Human
           shouldHave: false
         scaleByQuantity: true
         ignoreResistances: true
@@ -574,7 +574,7 @@
           reagent: Zauker
           min: 12
         - !type:OrganType
-          type: Thaven
+          type: Human
           shouldHave: false
         ignoreResistances: true
         damage:
@@ -597,7 +597,7 @@
       - !type:Oxygenate
         conditions:
         - !type:OrganType
-          type: Thaven
+          type: Human
 
 - type: reagent
   id: Helium
@@ -612,7 +612,7 @@
       - !type:Oxygenate
         conditions:
         - !type:OrganType
-          type: Thaven
+          type: Human
 
 - type: reagent
   id: Anti-Noblium
@@ -627,5 +627,5 @@
       - !type:Oxygenate
         conditions:
         - !type:OrganType
-          type: Thaven
- 
+          type: Human
+
