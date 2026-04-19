@@ -38,6 +38,7 @@ public sealed class HFRConsoleSystem : EntitySystem
         SubscribeLocalEvent<HFRConsoleComponent, HFRConsoleSetFuelInputRateMessage>(OnSetFuelInputRateMessage);
         SubscribeLocalEvent<HFRConsoleComponent, HFRConsoleSetModeratorInputRateMessage>(OnSetModeratorInputRateMessage);
         SubscribeLocalEvent<HFRConsoleComponent, HFRConsoleSelectRecipeMessage>(OnSelectRecipeMessage);
+        SubscribeLocalEvent<HFRConsoleComponent, ComponentStartup>(OnConsoleStartup);
         SubscribeLocalEvent<HFRConsoleComponent, AnchorStateChangedEvent>(OnConsoleAnchorChanged);
         SubscribeLocalEvent<HFRConsoleComponent, HFRConsoleToggleWasteRemoveMessage>(OnToggleWasteRemoveMessage);
         SubscribeLocalEvent<HFRConsoleComponent, HFRConsoleSetHeatingConductorMessage>(OnSetHeatingConductorMessage);
@@ -52,6 +53,11 @@ public sealed class HFRConsoleSystem : EntitySystem
     private void OnBeforeOpened(Entity<HFRConsoleComponent> ent, ref BeforeActivatableUIOpenEvent args)
     {
         DirtyUI(ent, ent.Comp);
+    }
+
+    private void OnConsoleStartup(EntityUid uid, HFRConsoleComponent console, ComponentStartup args)
+    {
+        SetPowerState(uid, console);
     }
 
     private void OnConsoleAnchorChanged(EntityUid uid, HFRConsoleComponent console, ref AnchorStateChangedEvent args)
@@ -78,6 +84,9 @@ public sealed class HFRConsoleSystem : EntitySystem
 
     public void SetPowerState(EntityUid uid, HFRConsoleComponent console)
     {
+        if (LifeStage(uid) <= EntityLifeStage.MapInitialized)
+            return;
+
         if (!TryComp<ApcPowerReceiverComponent>(uid, out var powerReceiver))
             return;
 
