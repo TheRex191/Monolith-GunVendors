@@ -81,7 +81,7 @@
   molarMass: 120
   color: 009933
   reagent: Proto-Nitrate
-  pricePerMole: 3
+  pricePerMole: 3 # Mono
 
 - type: gas
   id: 16
@@ -94,7 +94,7 @@
   molarMass: 110
   color: 1c1a1a
   reagent: Zauker
-  pricePerMole: 110
+  pricePerMole: 110 #Mono
 
 - type: gas
   id: 17
@@ -107,7 +107,7 @@
   molarMass: 150
   color: e3574d
   reagent: Halon
-  pricePerMole: 3
+  pricePerMole: 3 #Mono
 
 - type: gas
   id: 18
@@ -117,7 +117,7 @@
   molarMass: 4
   color: 005959
   reagent: Helium
-  pricePerMole: 20
+  pricePerMole: 20 #Mono
 
 - type: gas
   id: 19
@@ -130,4 +130,4 @@
   molarMass: 200
   color: 525151
   reagent: Anti-Noblium
-  pricePerMole: 100
+  pricePerMole: 100 #Mono
