@@ -37,7 +37,7 @@
   id: TradeMall
   mapName: 'Trade Mall'
   mapPath: /Maps/_NF/POI/trademall.yml
-  isGrid: true
+  isGrid: false
   minPlayers: 0
   stations:
     TradeMall:
