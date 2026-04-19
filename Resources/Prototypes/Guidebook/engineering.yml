@@ -329,7 +329,9 @@
 - type: guideEntry
   id: SupermatterEngine
   name: guide-entry-supermatter-engine
-  text: "/ServerInfo/_Mono/Guidebook/Engineering/Supermatter.xml"- type: guideEntry
+  text: "/ServerInfo/_Mono/Guidebook/Engineering/Supermatter.xml"
+
+- type: guideEntry
   id: AME
   name: guide-entry-ame
   text: "/ServerInfo/Guidebook/Engineering/AME.xml"
