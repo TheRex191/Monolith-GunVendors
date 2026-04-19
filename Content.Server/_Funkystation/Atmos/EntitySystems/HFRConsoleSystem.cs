@@ -95,7 +95,9 @@ public sealed class HFRConsoleSystem : EntitySystem
             shouldBePowered = _hfrSystem.AreAllPartsConnected(console.CoreUid.Value, coreComp);
         }
 
-        powerReceiver.PowerDisabled = !shouldBePowered;
+        var shouldBeDisabled = !shouldBePowered;
+        if (powerReceiver.PowerDisabled != shouldBeDisabled)
+            powerReceiver.PowerDisabled = shouldBeDisabled;
     }
 
     private void OnTogglePowerMessage(EntityUid uid, HFRConsoleComponent component, HFRConsoleTogglePowerMessage args)
