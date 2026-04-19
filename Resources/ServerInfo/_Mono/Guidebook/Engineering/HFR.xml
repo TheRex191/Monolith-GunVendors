@@ -26,7 +26,6 @@
   • High heat capacity gases are harder to heat or cool.
 
   • Low heat capacity gases are easier to heat or cool.
-
   <Box>
     <GuideEntityEmbed Entity="HFRCorner" Rotation="-180" Caption="" Margin="0" />
     <GuideEntityEmbed Entity="HFRConsole" Rotation="180" Caption="" Margin="0" />
