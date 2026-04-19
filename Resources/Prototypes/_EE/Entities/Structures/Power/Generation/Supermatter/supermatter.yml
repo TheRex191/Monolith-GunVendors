@@ -108,3 +108,6 @@
       radius: 3
       energy: 2
       castShadows: false
+    - type: GuideHelp
+      guides:
+      - SupermatterEngine

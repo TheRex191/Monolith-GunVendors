@@ -1,0 +1,20 @@
+# Frontier/Mono Gasses
+
+This page covers custom gases commonly used in Frontier/Mono atmospherics setups.
+
+## Why They Matter
+- Some custom gases are tuned for specialized power, cooling, or reaction workflows.
+- They can be expensive or dangerous to produce, store, and transport.
+
+## Handling Guidelines
+- Store custom gases in dedicated, clearly labeled tanks.
+- Use isolated pipe networks where possible.
+- Verify temperature and pressure limits before mixing or transfer.
+
+## Common Workflow
+- Produce or acquire gas.
+- Buffer in secure storage.
+- Meter into your target system slowly.
+- Observe output behavior and adjust incrementally.
+
+For baseline gas mechanics, see [textlink="Gasses" link="Gasses"].

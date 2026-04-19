@@ -1,0 +1,25 @@
+# Hypertorus Fusion Reactor (HFR)
+
+The Hypertorus Fusion Reactor is a high-risk, high-output atmospherics power system built from multiple parts.
+
+## What It Does
+- Consumes fuel and moderator gases to run a fusion reaction.
+- Produces significant power and heat.
+- Outputs waste gases that must be handled safely.
+
+## Basic Parts
+- Core: Main reaction unit.
+- Fuel Input: Feeds fuel gas mix.
+- Moderator Input: Feeds moderator gas mix.
+- Waste Output: Removes byproducts.
+- Console: Control and monitoring UI.
+
+## Startup Notes
+- Ensure stable station power before startup.
+- Prepare cooling and waste handling first.
+- Start with conservative settings and watch trends, not just snapshots.
+
+## Safety
+- Treat overheating and runaway reactions as emergencies.
+- Maintain redundant venting and cooling paths.
+- Coordinate with engineering and command before major tuning changes.

@@ -103,8 +103,8 @@
 - type: cargoProduct
   id: CrateEngineeringHFROrder # Mono - HFR should be buyable from the TM
   icon:
-    sprite: _Funkystation/Structures/Machines/HFR/hfrbox.rsi
-    state: box_core
+    sprite: Structures/Storage/Crates/engicrate_secure.rsi
+    state: icon
   product: CrateEngineeringHFR
   cost: 100000 # Mono - given what is possible with this baby, it should be expensive
   category: cargoproduct-category-name-atmospherics

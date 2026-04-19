@@ -40,6 +40,9 @@
   - type: Construction
     graph: HFRConsole
     node: hfrConsole
+  - type: GuideHelp
+    guides:
+    - HFR
   - type: HFRSidePart
   - type: HFRConsole
 
