@@ -52,7 +52,6 @@
   - AtmosTools
   - Gasses
   - MonoGasses
-  - Electrolyzer
   - HFR
   - GasMining # Frontier
 
@@ -260,11 +259,6 @@
   id: MonoGasses
   name: guide-entry-mono-gasses
   text: "/ServerInfo/_Mono/Guidebook/Engineering/MonoGasses.xml"
-
-- type: guideEntry
-  id: Electrolyzer
-  name: guide-entry-electrolyzer
-  text: "/ServerInfo/_Mono/Guidebook/Engineering/Electrolyzer.xml"
 
 - type: guideEntry
   id: HFR

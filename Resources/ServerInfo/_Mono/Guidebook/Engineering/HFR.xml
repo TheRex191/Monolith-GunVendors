@@ -1,25 +1,24 @@
-# Hypertorus Fusion Reactor (HFR)
+<Document>
+  <Box>
+    <GuideEntityEmbed Entity="HFRCorner" Rotation="-180" Caption="" Margin="0" />
+    <GuideEntityEmbed Entity="HFRConsole" Rotation="180" Caption="" Margin="0" />
+    <GuideEntityEmbed Entity="HFRCorner" Rotation="90" Caption="" Margin="0" />
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="HFRFuelInput" Rotation="-90" Caption="" Margin="0" />
+    <GuideEntityEmbed Entity="HFRCore" Rotation="0" Caption="" Margin="0" />
+    <GuideEntityEmbed Entity="HFRModeratorInput" Rotation="90" Caption="" Margin="0" />
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="HFRCorner" Rotation="-90" Caption="" Margin="0" />
+    <GuideEntityEmbed Entity="HFRWasteOutput" Rotation="0" Caption="" Margin="0" />
+    <GuideEntityEmbed Entity="HFRCorner" Rotation="0" Caption="" Margin="0" />
+  </Box>
+  <Box>
+    ## Hypertorus Fusion Reactor
+  </Box>
+  <Box>
+    [color=#999999][italic]Me when donut sun. Fillechange thing.[italic][/color]
+  </Box>
+</Document>
 
-The Hypertorus Fusion Reactor is a high-risk, high-output atmospherics power system built from multiple parts.
-
-## What It Does
-- Consumes fuel and moderator gases to run a fusion reaction.
-- Produces significant power and heat.
-- Outputs waste gases that must be handled safely.
-
-## Basic Parts
-- Core: Main reaction unit.
-- Fuel Input: Feeds fuel gas mix.
-- Moderator Input: Feeds moderator gas mix.
-- Waste Output: Removes byproducts.
-- Console: Control and monitoring UI.
-
-## Startup Notes
-- Ensure stable station power before startup.
-- Prepare cooling and waste handling first.
-- Start with conservative settings and watch trends, not just snapshots.
-
-## Safety
-- Treat overheating and runaway reactions as emergencies.
-- Maintain redundant venting and cooling paths.
-- Coordinate with engineering and command before major tuning changes.

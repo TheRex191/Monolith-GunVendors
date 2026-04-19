@@ -40,7 +40,6 @@ guide-entry-spacing = Spacing
 guide-entry-atmostools = Atmos Tools
 guide-entry-gasses = Gasses
 guide-entry-mono-gasses = Frontier/Mono Gasses
-guide-entry-electrolyzer = Electrolyzer
 guide-entry-hfr = Hypertorus Fusion Reactor (HFR)
 guide-entry-botany = Botany
 guide-entry-shuttle-craft = Shuttle-craft
