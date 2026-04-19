@@ -6,11 +6,13 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: entity
-  parent: BaseMachinePowered
+  parent: [BaseMachinePowered, ConstructibleMachine]
   id: Electrolyzer
   name: electrolyzer
   description: Splits water vapor and processes specialty gases.
   components:
+  - type: Machine
+    board: ElectrolyzerMachineCircuitboard
   - type: Electrolyzer
   - type: AtmosDevice
   - type: ApcPowerReceiver
@@ -31,3 +33,12 @@
   - type: GuideHelp
     guides:
     - Electrolyzer
+
+- type: entity
+  parent: BaseFlatpack
+  id: ElectrolyzerFlatpack
+  name: electrolyzer flatpack
+  description: A flatpack used for constructing an electrolyzer.
+  components:
+  - type: Flatpack
+    entity: Electrolyzer
