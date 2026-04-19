@@ -1,8 +1,6 @@
 [game]
 soft_max_players = 100
-map = "NFDev"
 lobbyduration = 180
-lobbyenabled = false
 
 [chat]
 motd = "Welcome to Monolith! Your story takes place in the Colossus Sector. Be sure to join our Discord!"

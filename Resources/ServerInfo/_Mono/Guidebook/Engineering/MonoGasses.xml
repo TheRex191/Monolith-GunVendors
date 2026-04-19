@@ -514,7 +514,7 @@ SPDX-License-Identifier: MIT
 
   ##BZ
   BZ gas is a potent hallucinogenic, as well as a sleeping agent for slimes. It is toxic to breathe and causes respiratory irritation and coughing. BZ sees frequent use as an ingredient in more complex gas reactions.
-  It can be made by combining approximately 33% Nitrous Oxide and 67% Plasma in an exothermic reaction under 310k. The reaction becomes more efficient at lower pressures and outside of pipes.
+  It can be made by combining approximately 33% Nitrous Oxide and 66% Plasma in an exothermic reaction under 310k. The reaction becomes more efficient at lower pressures and outside of pipes.
 
   <Box>
     <GuideEntityEmbed Entity="PlasmaCanister"/>
