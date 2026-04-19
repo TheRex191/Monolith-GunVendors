@@ -16,7 +16,7 @@ using Content.Server.NodeContainer.EntitySystems;
 using Content.Server._Funkystation.Atmos.HFR.Systems;
 
 namespace Content.Server._Funkystation.Atmos.Systems;
-
+// This is a comment to force the git bot to restart
 public sealed class HFRConsoleSystem : EntitySystem
 {
     [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
@@ -88,7 +88,7 @@ public sealed class HFRConsoleSystem : EntitySystem
             return;
 
         bool shouldBePowered = false;
-        if (console.CoreUid != null && 
+        if (console.CoreUid != null &&
             EntityManager.EntityExists(console.CoreUid.Value) &&
             TryComp<HFRCoreComponent>(console.CoreUid.Value, out var coreComp))
         {
@@ -334,7 +334,7 @@ public sealed class HFRConsoleSystem : EntitySystem
             {
                 coolantMoles = corePipe.Air.TotalMoles;
                 coolantTemperature = corePipe.Air.Temperature;
-                coolantTemperatureArchived = coolantTemperature; 
+                coolantTemperatureArchived = coolantTemperature;
             }
 
             // Calculate output moles and temperature from HFRWasteOutput pipe
@@ -344,7 +344,7 @@ public sealed class HFRConsoleSystem : EntitySystem
             {
                 outputMoles = wastePipe.Air.TotalMoles;
                 outputTemperature = wastePipe.Air.Temperature;
-                outputTemperatureArchived = outputTemperature; 
+                outputTemperatureArchived = outputTemperature;
             }
         }
 
