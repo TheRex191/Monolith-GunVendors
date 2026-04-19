@@ -150,11 +150,11 @@ public sealed partial class HFRConsoleWindow : FancyWindow
         IoCManager.InjectDependencies(this);
 
         var fontAwesome6FreeFontSolid = LoadFontWithFallback(
-            "/Fonts/_Funkystation/FontAwesome6Free/fa-solid-900.ttf",
+            "/Fonts/FontAwesome6Free/fa-solid-900.ttf",
             "/Fonts/NotoSans/NotoSans-Regular.ttf",
             11);
         var fontAwesome6FreeFontRegular = LoadFontWithFallback(
-            "/Fonts/_Funkystation/FontAwesome6Free/fa-regular-400.ttf",
+            "/Fonts/FontAwesome6Free/fa-regular-400.ttf",
             "/Fonts/NotoSans/NotoSans-Regular.ttf",
             11);
 
@@ -249,7 +249,7 @@ public sealed partial class HFRConsoleWindow : FancyWindow
     {
         var notoSansDisplayFont = new VectorFont(_resourceCache.GetResource<FontResource>("/Fonts/NotoSansDisplay/NotoSansDisplay-Regular.ttf"), 11);
         var fontAwesome6FreeFont = LoadFontWithFallback(
-            "/Fonts/_Funkystation/FontAwesome6Free/fa-solid-900.ttf",
+            "/Fonts/FontAwesome6Free/fa-solid-900.ttf",
             "/Fonts/NotoSans/NotoSans-Regular.ttf",
             11);
 

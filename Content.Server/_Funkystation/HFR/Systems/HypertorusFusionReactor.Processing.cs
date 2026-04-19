@@ -65,6 +65,10 @@ namespace Content.Server._Funkystation.Atmos.HFR.Systems
             // Fusion Rework Counter: Please increment this if you make a major overhaul to this system again.
             // 7 reworks
 
+            // Mono: Seed the reactor out of the zero-power deadlock once it is active and actually has enough fuel to run.
+            if (core.IsActive && core.PowerLevel == 0 && core.InternalFusion != null && CheckFuel(core))
+                core.InternalFusion.Temperature = Math.Max(core.InternalFusion.Temperature, 1000.01f);
+
             // Check if the console exists and is powered
             bool isConsolePowered = core.ConsoleUid != null && _powerReceiver.IsPowered(core.ConsoleUid.Value);
 
