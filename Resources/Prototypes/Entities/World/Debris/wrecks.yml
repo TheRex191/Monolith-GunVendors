@@ -50,11 +50,6 @@
       color: "#88b0d1"
 
 - type: entity
-  id: Debris
-  parent: ScrapDebrisMedium
-  categories: [ HideSpawnMenu ]
-
-- type: entity
   id: ScrapDebrisSmall
   parent: BaseScrapDebris
   name: scrap debris small
