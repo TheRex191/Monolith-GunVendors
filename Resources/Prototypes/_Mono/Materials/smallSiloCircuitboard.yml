@@ -1,5 +1,5 @@
 - type: entity
-  id: MaterialSiloMachineCircuitboardSmall
+  id: MaterialSiloSmallMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: small material silo machine board
   components:
