@@ -1,0 +1,13 @@
+- type: entity
+  id: MaterialSiloMachineCircuitboardSmall
+  parent: BaseMachineCircuitboard
+  name: small material silo machine board
+  components:
+  - type: Sprite
+    state: supply
+  - type: MachineBoard
+    prototype: MachineMaterialSiloSmall
+    requirements: # Frontier
+      MatterBin: 4 # Frontier stackRequirements<requirements
+    stackRequirements:
+      Cable: 1
